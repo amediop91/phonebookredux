@@ -1,24 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
+import Ajout from './store/Ajout.js'
+import Affichage from './store/Affichage.js'
+import Modif from './store/Modif.js'
+import { Form, Input, Button, Select } from 'antd';
+import React, { useEffect, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <Router>
+           <div>
+               <Switch>
+                  <Route path="/Ajout">
+                    <Ajout />
+                   </Route>
+                   <Route path="/Affichage">
+                      <Affichage />
+                   </Route>
+                   <Route path="/Modif/:id">
+                       < Modif />
+                   </Route>
+                   
+               </Switch>
+            </div> 
+     </Router>
   );
 }
 
